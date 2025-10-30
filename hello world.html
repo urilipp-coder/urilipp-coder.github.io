@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <link href="C:/Users/urili/Desktop/server/secret.png" rel="shortcut icon">
+        <title>this is uris site</title>
+         <style>
+    
+   
+  
+    #backgroundImage{
+        margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #222;
+      color: white;
+      border: none;
+      border-radius: 1000px;
+      cursor: pointer;
+    }
+    .buttons button{
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #222;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      
+    }
+    
+  </style>
+    </head>
+    <body>
+        <img id="backgroundImage" src="C:\Users\urili\OneDrive\Pictures\Screenshots\Screenshot 2025-07-31 141642.png">
+        <div class="buttons">
+        <button id="print">print this page</button>
+        <button id="this">close this page</button>
+        <button id="button">important</button>
+        <button id="link">my other page</button>
+        </div>
+        <img src="C:/Users/urili/OneDrive/Pictures/Screenshots/Screenshot 2025-07-31 195222.png">
+    <script>
+        document.getElementById('print').addEventListener('click', () => {
+            print()
+        })
+        document.getElementById('this').addEventListener('click', () => {
+            close()
+        })
+        document.getElementById('button').addEventListener('click', () => {
+            open("https://dictionary.cambridge.org/dictionary/english/important")
+        })
+        document.getElementById('link').addEventListener('click', () => {
+            open("C:/Users/urili/Desktop/server/html.html")
+        })
+        
+    </script>
+    </body>
+</html>
