@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>study.com except i don't have that domain</title>
+  <link rel="stylesheet" href="https://unpkg.com/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-image: url("https://static.vecteezy.com/system/resources/previews/002/398/362/large_2x/a-vintage-professional-chello-free-photo.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      text-shadow: 0 0 5px black;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      background-color: rgba(50,60,30,0.6);
+      color: white;
+      transition: 0.3s;
+      margin-bottom: 20px;
+    }
+    button:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    #board {
+      width: 400px;
+    }
+    iframe {
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>study.com except i don't have that domain</h1>
+
+  <button id="infoButton">Information</button>
+
+  <div class="container">
+    <!-- Spotify playlist -->
+    <iframe
+      src="https://open.spotify.com/embed/playlist/3memd2LYFWtqWhnaKfEERG"
+      title="Best music playlist"
+      width="400"
+      height="500"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+    </iframe>
+<iframe
+    src="https://tetris.com/play-tetris"
+    title="Play Tetris"
+    width="400"
+    height="500"
+    style="border:none;"
+    allowfullscreen>
+</iframe>
+    <!-- Chessboard -->
+    <div id="board"></div>
+  </div>
+
+  <!-- Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/1.0.0/chess.min.js"></script>
+  <script src="https://unpkg.com/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
+
+  <script>
+    document.getElementById('infoButton').addEventListener('click', () => {
+      window.open("https://www.youtube.com/watch?v=RhtiDYLbfF4", "_blank");
+    });
+
+    const game = new Chess();
+
+    const board = Chessboard('board', {
+      draggable: true,
+      position: 'start',
+      onDrop: handleMove
+    });
+
+    function handleMove(source, target) {
+      const move = game.move({ from: source, to: target, promotion: 'q' });
+      if (move === null) return 'snapback';
+
+      window.setTimeout(makeAIMove, 250);
+    }
+
+    function makeAIMove() {
+      const moves = game.moves();
+      if (moves.length === 0) return; // game over
+
+      // Simple AI: choose random legal move
+      const move = moves[Math.floor(Math.random() * moves.length)];
+      game.move(move);
+      board.position(game.fen());
+    }
+  </script>
+</body>
+</html>
